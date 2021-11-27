@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+  <title>Location</title>
+  <link rel="stylesheet" href="css/style.css?cache=' + new Date().getTime() + '" media="all">
+</head>
+<body>
+  
+
+   <div class="myDiv"><p>LOADING....</p></div>  
+
+
+  <!-- <script src="js/vconsole.min.js"></script> -->
+  <!-- <script>
+    var vConsole = new VConsole()
+    console.log("Hello World!")
+  </script> -->
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script>
+    function createUniversalLink() {
+    }
+
+    async function shareMsg() {
+    }
+
+    function logOut() {
+    }
+
+    async function closed() {
+    }
+
+    async function scanCode() {
+    }
+
+    function openWindow() {
+    }
+
+    async function getFriendship() {
+    }
+
+    function getPosition() {
+    // Simple wrapper
+    return new Promise((res, rej) => {
+        navigator.geolocation.getCurrentPosition(res, rej);
+    });
+}
+
+    
+
+    async function sendMsg() {
+        if(liff.getContext().type !== "none" && liff.getContext().type !== "external"){
+            var position = await getPosition(); 
+            var data_latitude = position.coords.latitude
+            var data_longitude = position.coords.longitude
+            await liff.sendMessages([
+                {
+                type: `text`,
+                text: 'ฉุกเฉิน '+'latitude='+data_latitude+' '+'longitude = '+data_longitude
+                }
+            ])
+        }
+        
+        console.log('latitude = '+position.coords.latitude);
+        console.log('longitude = '+position.coords.longitude);
+        liff.closeWindow();
+    }
+
+    function getContext() {
+    }
+
+    async function getUserProfile() {
+    }
+
+    function getEnvironment() {
+    }
+
+    async function main() {
+    
+      await liff.init({ liffId: "1656658617-oRvakkwq" })
+      sendMsg()
+      
+    }
+    main()
+  </script>
+</body>
+</html>
